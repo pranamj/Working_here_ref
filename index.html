@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0 0 20px;
+        }
+
+        .result {
+            font-size: 18px;
+        }
+
+        #months,
+        #days {
+            font-weight: bold;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Date Calculation</h1>
+        <div class="result">
+            From July 11 to now:
+            <span id="months"></span> months
+            <span id="days"></span> days
+        </div>
+    </div>
+    <script>
+        // Define the start date (July 11)
+        const startDate = new Date('2023-07-11');
+
+        // Get the current date
+        const currentDate = new Date();
+
+        // Calculate the time difference in milliseconds
+        const timeDiff = currentDate - startDate;
+
+        // Convert the time difference to days and months
+        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const monthsDiff = Math.floor(daysDiff / 30); // Assuming an average of 30 days per month
+
+        // Calculate the remaining days
+        const remainingDays = daysDiff % 30;
+
+        // Display the result in the HTML document
+        document.getElementById('months').textContent = monthsDiff;
+        document.getElementById('days').textContent = remainingDays;
+    </script>
+</body>
+</html>
